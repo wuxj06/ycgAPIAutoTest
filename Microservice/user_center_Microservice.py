@@ -28,8 +28,8 @@ class user_center(unittest.TestCase):
         self.timeArray = time.strptime(self.t, self.format)
         self.timeStamp = str(int(time.mktime(self.timeArray)))
         # timeStamp = '1597231871'
-        self.app_id = 'micro-supplier-service'
-        self.app_key = '748e4880546c5004d0164d70ce8df743'
+        self.app_id = 'appid'
+        self.app_key = 'appkey'
         self.auth = self.app_id + '&' + self.timeStamp + '&' + self.app_key
         self.md5x = hmac.new(
             bytes(
@@ -40,7 +40,7 @@ class user_center(unittest.TestCase):
                 encoding='utf-8'),
             digestmod=sha256)
         self.key = self.md5x.hexdigest()
-        self.channel = grpc.insecure_channel('47.101.38.159:31009')
+        self.channel = grpc.insecure_channel('address')
         self.metadata1 = (
             ('authorization', 'bearer %s.{"app_id":"%s","time_stamp":%s}' % (self.key,self.app_id, self.timeStamp)),)
 

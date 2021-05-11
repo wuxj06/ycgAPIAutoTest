@@ -32,8 +32,8 @@ class msn_center(unittest.TestCase):
         self.timeArray = time.strptime(self.t, self.format)
         self.timeStamp = str(int(time.mktime(self.timeArray)))
         # timeStamp = '1597231871'
-        self.app_id = "micro-user-basic-service"
-        self.app_key = '3F9Espv8lrcZ2iDA4MqJhTy6QXUzoYax'
+        self.app_id = "appid"
+        self.app_key = 'appkey'
         self.auth = self.app_id + '&' + self.timeStamp + '&' + self.app_key
         self.md5x = hmac.new(
             bytes(
@@ -44,7 +44,7 @@ class msn_center(unittest.TestCase):
                 encoding='utf-8'),
             digestmod=sha256)
         self.key = self.md5x.hexdigest()
-        self.channel = grpc.insecure_channel('47.101.38.159:31001')
+        self.channel = grpc.insecure_channel('address')
         self.metadata1 = (
             ('authorization',
              'bearer %s.{"app_id":"%s","time_stamp":%s}' %

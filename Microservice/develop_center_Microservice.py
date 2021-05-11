@@ -24,9 +24,9 @@ class Microservice_develop_center(unittest.TestCase):
         cls.timeArray = time.strptime(cls.t, cls.format)
         cls.timeStamp = str(int(time.mktime(cls.timeArray)))
         # timeStamp = '1597231871'
-        cls.app_id = 'micro-developer-api'
-        cls.app_key = 'aftFKL7Pwh4KZar2EqsbFILMJEFAGN3f'
-        cls.address = '47.101.38.159:31011'
+        cls.app_id = 'appid'
+        cls.app_key = 'appkey'
+        cls.address = 'address'
         cls.auth = cls.app_id + '&' + cls.timeStamp + '&' + cls.app_key
         cls.md5x = hmac.new(
             bytes(
